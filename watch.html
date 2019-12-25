@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="watch.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="clock">
+            <div class="hour">
+                <div class="hr" id="hr"></div>
+            </div>
+            <div class="minute">
+                <div class="mn" id="mn"></div>
+            </div>
+            <div class="second">
+                <div class="sc" id="sc"></div>
+            </div>
+        </div>
+
+        <script>
+            const deg = 6;
+            const hr = document.querySelector("#hr");
+            const mn = document.querySelector("#mn");
+            const sc = document.querySelector("#sc");
+            const r = document.querySelector("#rotate")
+
+            setInterval(()=> {
+                let date = new Date();
+                let hh = date.getHours() * 30;
+                let mm = date.getMinutes() * deg;
+                let ss = date.getSeconds() * deg;
+                hr.style.transform = `rotateZ(${hh+(mm/12)}deg)`;
+                mn.style.transform = `rotateZ(${mm}deg)`;
+                sc.style.transform = `rotateZ(${ss}deg)`;
+            },1000);
+        </script>
+    </body>
+</html>
